@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix Animation</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Les imatges no es veuen al principi */
+    #n1, #n2, #n3 {
+      opacity: 0;
+      clip-path: inset(100% 0 0 0); /* Ocultem la imatge inicialment */
+    }
+
+    /* Animació per a n1 (puja i es revela) */
+    @keyframes n1 {
+      0% {
+        opacity: 0;
+        clip-path: inset(100% 0 0 0); /* Comença completament oculta */
+      }
+      100% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0); /* Es mostra completament */
+      }
+    }
+
+    /* Animació per a n2 (baixa i es revela) */
+    @keyframes n2 {
+      0% {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0); /* Comença completament oculta des de dalt */
+      }
+      100% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0); /* Es mostra completament */
+      }
+    }
+
+    /* Animació per a n3 (puja i es revela) */
+    @keyframes n3 {
+      0% {
+        opacity: 0;
+        clip-path: inset(100% 0 0 0); /* Comença completament oculta */
+      }
+      100% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0); /* Es mostra completament */
+      }
+    }
+
+    /* Aplicació de les animacions */
+    #n1 {
+      animation: n1 0.5s ease-out forwards; /* n1 apareix primer */
+      width: 150px;
+      height: 75px;
+      position: absolute;
+      top: 1;
+      left: 0;
+    }
+
+    #n2 {
+      animation: n2 0.5s ease-out 0.5s forwards; /* n2 apareix 1 segon després */
+      width: 150px;
+      height: 75px;
+      position: absolute;
+      top: 1;
+      left: 13px;
+    }
+
+    #n3 {
+      animation: n3 0.5s ease-out 1s forwards; /* n3 apareix 2 segons després */
+      width: 150px;
+      height: 75px;
+      position: absolute;
+      top: 1;
+      left: 26px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Imatges del logo -->
+  <img src="n1.svg" id="n1">
+  <img src="n3.svg" id="n3">
+  <img src="n2.svg" id="n2">
+</body>
+</html>
